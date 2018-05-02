@@ -20,6 +20,9 @@
         @permission('MASTER_USER_UDEC')
         @include('themes.menus.users-udec-menu')
         @endpermission
+        {{--REPORTES--}}
+        @include('themes.menus.reportes-menu')
+        
     </ul>
     {{-- BEGIN SIDEBAR MENU --}}
 </div>

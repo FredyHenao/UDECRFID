@@ -357,6 +357,15 @@ Route::group(['middleware' => ['auth']], function () {
             'as' => 'usersUdec.register'
         ]);
     });
+
+    Route::group(['prefix' => 'reportes' ],function (){
+        $controller = "\\App\\Container\\Users\\src\\Controllers\\";
+
+        Route::get('index',[
+            'uses' => $controller . 'ReporteController@index',
+            'as' => 'reportes.index'
+        ]);
+    });
 });
 
 // Lenguaje
@@ -380,3 +389,4 @@ Route::get('home', 'HomeController@indexAdmin');
 Route::get('admin', 'HomeController@indexAdmin');
 Route::get('template', 'GeneratePdfController@index')->name('template');
 Route::get('download-pdf', 'GeneratePdfController@create')->name('download.pdf');
+
