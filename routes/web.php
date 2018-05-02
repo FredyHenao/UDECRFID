@@ -376,6 +376,7 @@ Route::post('check/email/existing', [
  */
 Auth::routes();
 Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@indexAdmin');
 Route::get('admin', 'HomeController@indexAdmin');
 Route::get('template', 'GeneratePdfController@index')->name('template');
 Route::get('download-pdf', 'GeneratePdfController@create')->name('download.pdf');
