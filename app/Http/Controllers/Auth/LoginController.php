@@ -31,7 +31,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = 'admin';
-    protected $redirectAfterLogout = '/';
+    //protected $redirectAfterLogout = 'admin';
 
     /**
      * Create a new controller instance.
@@ -82,12 +82,6 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
-    }
-
-    public function logout(Request $request)
-    {
-        $this->performLogout($request);
-        return redirect()->route($this->redirectAfterLogout);
     }
 
     /**
