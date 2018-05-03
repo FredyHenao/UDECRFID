@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CarnetFormRequest;
-use App\Carnet;
+use App\carnet\Carnet;
 
 class CarnetController extends Controller
 {
