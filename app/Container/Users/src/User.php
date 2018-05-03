@@ -100,49 +100,15 @@ class User extends Authenticatable implements AuditableContract
     {
         //seoble, likeable, votable....
         return $this->morphMany(Image::class, 'imageble');
-    }
-
-    /**
-     * Get the UsuarioAudiovisuales record associated with the user.
-     */
-    public function audiovisual()
-    {
-        return $this->hasOne('App\Container\Audiovisuals\Src\UsuarioAudiovisuales', 'USER_FK_User');
-    }
-
-    /**
-     * Get the UsuarioInteraction  record associated with the user.
-     */
-    public function unvInteraction()
-    {
-        return $this->hasOne('App\Container\Unvinteraction\Src\UsuarioInteraction', 'USER_FK_User');
-    }
-
-    /**
-     * Get the UsuarioEspaciosAcademicos record associated with the user.
-     *
-    public function acadspace()
-    {
-        return $this->hasMany('App\Container\Acadspace\Src\Solicitud', 'SOL_id_docente');
-    }
-
-    public function formatosAcadspace()
-    {
-        return $this->hasMany('App\Container\Acadspace\Src\Formatos', 'FK_FAC_id_secretaria');
-    }
-    */
-
-    /**
-     * Get the UsuarioGesap record associated with the user.
-     */
-    public function gesap()
-    {
-        return $this->hasOne('App\Container\Gesap\Src\Encargados', 'FK_developer_user_id');
-    }
+    }    
 
     public function getFullNameAttribute()
     {
         return $this->name . ' ' . $this->lastname;
+    }
+
+    public function controles(){
+        return $this->belongsTo(Controles::class,'FK_UsuarioId');
     }
 
 }
