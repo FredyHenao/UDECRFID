@@ -22,7 +22,8 @@
         @endpermission
         {{--REPORTES--}}
         @include('themes.menus.reportes-menu')
-        
+        {{-- CARNET --}}
+        @include('themes.menus.carnet-menu')
     </ul>
     {{-- BEGIN SIDEBAR MENU --}}
 </div>

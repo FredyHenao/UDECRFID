@@ -77,6 +77,7 @@
     {{-- BEGIN CUSTOM FUNCTIONS --}}
         @stack('functions')
     {{-- END CUSTOM FUNCTIONS --}}
+    @yield('modals')
 </body>
 {{-- END BODY --}}
 </html>

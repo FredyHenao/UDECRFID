@@ -215,6 +215,7 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -280,6 +281,7 @@ return [
         'Permissions'  => App\Container\Permissions\Src\Facades\PermissionFacades::class,
         'Roles'        => App\Container\Permissions\Src\Facades\RoleFacades::class,
         'Modules'      => App\Container\Permissions\Src\Facades\ModuleFacades::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

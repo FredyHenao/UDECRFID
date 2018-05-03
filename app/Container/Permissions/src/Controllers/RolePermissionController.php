@@ -140,4 +140,13 @@ class RolePermissionController extends Controller
             );
         }
     }
+
+    public function carnet()
+    {
+        $style = [
+            'badge-danger', 'badge-warning', 'badge-info', 'badge-success'
+        ];
+
+        return view('access-control.carnet');
+    }
 }

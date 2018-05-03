@@ -30,7 +30,17 @@ use App\Container\Users\Src\User;
  * del proyecto
  */
 
+
+
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::post('/subir-imagen', 'ImagenController@subir');
+    Route::post('/recortar-imagen-perfil','ImagenController@cortar');
+    Route::post('/guardar-carnet', 'CarnetController@guardar');
+    Route::post('/lista-carnets', 'CarnetController@lista');
+    Route::post('/eliminar-carnet', 'CarnetController@eliminar');
+
+
     Route::get('markdown', function () {
         $user = User::findOrFail(1);
         /*
@@ -228,6 +238,10 @@ Route::group(['middleware' => ['auth']], function () {
             'uses' => $controller . 'RolePermissionController@index',
             'as' => 'roles.permission.index'
         ]);
+        Route::get('carnet', [
+            'uses' => $controller . 'RolePermissionController@carnet',
+            'as' => 'roles.permission.carnet'
+        ]);
         Route::get('data/role/{id?}', [
             'uses' => $controller . 'RolePermissionController@data',
             'as' => 'roles.permission.data'
@@ -389,4 +403,3 @@ Route::get('home', 'HomeController@indexAdmin');
 Route::get('admin', 'HomeController@indexAdmin');
 Route::get('template', 'GeneratePdfController@index')->name('template');
 Route::get('download-pdf', 'GeneratePdfController@create')->name('download.pdf');
-
