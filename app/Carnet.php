@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carnet extends Model
 {
-    protected $connection = "carnet";
-    protected $table = "carnet";
+    protected $connection = 'carnet';
+    public    $table = 'carnet';
 }

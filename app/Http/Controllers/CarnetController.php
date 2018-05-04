@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Carnet;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarnetFormRequest;
-use App\carnet\Carnet;
 
 class CarnetController extends Controller
 {
