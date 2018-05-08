@@ -40,6 +40,12 @@ class CreateForeignsTable extends Migration
             $table->foreign('FK_UsuarioId')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
+        Schema::connection('developer')->table('TBL_Listen', function (Blueprint $table) {
+            $table->integer('FK_UsuarioId')->nullable()->unsigned();
+
+            $table->foreign('FK_UsuarioId')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+        });
     }
     /**
      * Reverse the migrations.
