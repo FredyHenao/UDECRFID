@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'root',
             'lastname' => 'udec',
             'state' => 'Aprobado',
+            'code' => '123456789',
             'email' => 'root@app.com',
             'password' => bcrypt('root'),
         ]);
