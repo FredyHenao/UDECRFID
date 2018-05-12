@@ -24,6 +24,7 @@ class CreateForeignsTable extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('regions_id')->references('id')->on('regions')
                 ->onUpdate('cascade')->onDelete('cascade');
+                
         });
         Schema::connection('developer')->table('TBL_Recursos', function (Blueprint $table) {
             $table->integer('FK_AreasId')->nullable()->unsigned();
@@ -46,6 +47,19 @@ class CreateForeignsTable extends Migration
             $table->foreign('FK_UsuarioId')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
+        Schema::connection('developer')->table('users', function (Blueprint $table) {
+            $table->integer('FK_ProgramaId')->nullable()->unsigned();
+
+            $table->foreign('FK_ProgramaId')->references('PK_IdProgramas')->on('TBL_Programas')
+                ->onUpdate('cascade')->onDelete('cascade');
+        });
+        Schema::connection('developer')->table('users', function (Blueprint $table) {
+            $table->integer('FK_ImagenId')->nullable()->unsigned();
+
+            $table->foreign('FK_ImagenId')->references('id')->on('images')
+                ->onUpdate('cascade')->onDelete('cascade');
+        });
+        
     }
     /**
      * Reverse the migrations.
