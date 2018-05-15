@@ -53,12 +53,6 @@ class CreateForeignsTable extends Migration
             $table->foreign('FK_ProgramaId')->references('PK_IdProgramas')->on('TBL_Programas')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
-        Schema::connection('developer')->table('users', function (Blueprint $table) {
-            $table->integer('FK_ImagenId')->nullable()->unsigned();
-
-            $table->foreign('FK_ImagenId')->references('id')->on('images')
-                ->onUpdate('cascade')->onDelete('cascade');
-        });
         
     }
     /**
