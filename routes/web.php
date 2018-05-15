@@ -379,6 +379,16 @@ Route::group(['middleware' => ['auth']], function () {
             'uses' => $controller . 'ReporteController@index',
             'as' => 'reportes.index'
         ]);
+
+        Route::post('reporte',[
+            'uses' => $controller . 'ReporteController@reporte',
+            'as' => 'reportes.reporte'
+        ]);
+
+        Route::get('grafica',[
+            'uses' => $controller . 'ReporteController@grafica',
+            'as' => 'reportes.grafica'
+        ]);
     });
 });
 

@@ -11,7 +11,14 @@
                 <span class="title">Inventario</span>
             </a>
         </li>
+        <li class="nav-item {{ active(['reportes.grafica'], 'start active open') }}">
+            <a href="{{ route('reportes.grafica') }}" class="nav-link nav-toggle">
+                <i class="fa fa-industry"></i>
+                <span class="title">Grafíca</span>
+            </a>
+        </li>
     </ul>
+    
 {{---
     <ul class="sub-menu">
         @permission('USER_UDEC')

@@ -82,4 +82,8 @@ class ReporteController extends Controller
     {
         //
     }
+
+    public function grafica(){
+        return view('users.reportes.grafica');
+    }
 }

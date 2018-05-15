@@ -13,24 +13,11 @@
 @endpush
 @section('content')
     <div class="col-md-12">
-        @component('themes.bootstrap.elements.portlets.portlet', ['icon' => 'icon-book-open', 'title' => 'Reportes por Novedad'])
+        @component('themes.bootstrap.elements.portlets.portlet', ['icon' => 'icon-book-open', 'title' => 'Grafíca Entradas a la Universidad'])
             <div class="row">
                 {{--DIVISION NAV--}}
                 <div class="col-md-7 col-md-offset-2">
-                    {!! Form::open (['id'=>'form-reporte', 'class' => 'form-horizontal', 'method'=>'POST', 'route'=> ['reportes.index'], 'target'=>'_blank']) !!}
-                    <div class="form-body">
-                        {!! Field::select(
-                        'novedad',
-                        ['1' => 'Entradas','2' => 'Salidas', '3' => 'Biblioteca',],null,
-                        ['required', 'label' => 'Novedades' , 'autofocus', 'auto' => 'off']) !!}
-                        <div class="form-actions">
-                            <div class="row">
-                                <div class="col-md-12 col-md-offset-0" align="center">
-                                    {{ Form::submit('Generar Reporte', ['class' => 'btn blue']) }}
-                                </div>
-                            </div>
-                        </div>
-                        {!! Form::close() !!}
+                    
                     </div>
 
                 </div>
