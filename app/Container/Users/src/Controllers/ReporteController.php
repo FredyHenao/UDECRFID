@@ -4,6 +4,7 @@ namespace App\Container\Users\src\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Container\Users\src\Controles;
 
 class ReporteController extends Controller
 {
@@ -83,7 +84,15 @@ class ReporteController extends Controller
         //
     }
 
-    public function grafica(){
-        return view('users.reportes.grafica');
+    public function grafica(Request $request){
+        if($request->isMethod('GET')){
+            $registros = Controles::all();
+        }
+        $dataFecha = array();
+        foreach($registros as $cont){
+            $dataFecha[] = $cont->created_at->format('Y-m-d');
+        }
+        $date = array_count_values($dataFecha);
+        return view('users.reportes.grafica', compact('date'));
     }
 }
