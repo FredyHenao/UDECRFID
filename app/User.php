@@ -10,7 +10,9 @@ class User extends Model
 
   public function programa()
   {
-    return $this->belongsTo('App\Programa', 'FK_ProgramaId', 'PK_IdProgramas');
+    return $this->belongsTo('App\Programa', 'FK_ProgramaId', 'PK_IdProgramas')->withDefault(
+      ['PR_Nombre' => null]
+    );
   }
 
   public function listen()
