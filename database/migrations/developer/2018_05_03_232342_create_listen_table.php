@@ -27,6 +27,6 @@ class CreateListenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('listen');
+        Schema::dropIfExists('Listen');
     }
 }

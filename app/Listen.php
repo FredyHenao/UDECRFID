@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Listen extends Model
 {
-    protected $table = 'tbl_listen';
+    protected $table = 'TBL_Listen';
 
     public function scopeActivos($query)
     {

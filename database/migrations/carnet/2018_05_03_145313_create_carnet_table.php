@@ -13,7 +13,7 @@ class CreateCarnetTable extends Migration
      */
     public function up()
     {
-        Schema::create('carnet', function (Blueprint $table) {
+        Schema::create('TBL_Carnet', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 100);
             $table->string('imagen', 150);
