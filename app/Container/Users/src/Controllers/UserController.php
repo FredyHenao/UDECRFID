@@ -129,6 +129,8 @@ class UserController extends Controller
                 ->removeColumn('identity_expe_date')
                 ->removeColumn('sexo')
                 ->removeColumn('phone')
+                ->removeColumn('code')
+                ->removeColumn('card_code')
                 ->removeColumn('password')
                 ->removeColumn('cities_id')
                 ->removeColumn('countries_id')
