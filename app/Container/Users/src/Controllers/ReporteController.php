@@ -86,7 +86,7 @@ class ReporteController extends Controller
 
     public function grafica(Request $request){
         if($request->isMethod('GET')){
-            $registros = Controles::all();
+            $registros = Controles::all()->where('FK_RecursoId',"=","1");
         }
         $dataFecha = array();
         foreach($registros as $cont){
