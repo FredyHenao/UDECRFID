@@ -24,9 +24,7 @@ class CarnetFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'nombre' => 'required',
-          'programa' => 'required',
-          'codigo' => 'required|numeric|unique:carnet.carnet'
+          'select' => 'required',
         ];
     }
 }

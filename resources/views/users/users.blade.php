@@ -231,7 +231,7 @@
             {data: 'roles', name: 'Roles'},
             {data: 'state', name: 'Estado'},
             {
-                defaultContent: '<a href="javascript:;" class="btn btn-simple btn-warning btn-icon edit"><i class="icon-pencil"></i></a><a href="javascript:;" class="btn btn-simple btn-danger btn-icon remove"><i class="icon-trash"></i></a>',
+                defaultContent: '<a href="javascript:;" class="btn btn-simple btn-warning btn-icon edit"><i class="icon-pencil"></i></a><a href="javascript:;" class="btn btn-simple btn-danger btn-icon remove"><i class="icon-trash"></i></a><a href="javascript:;" class="btn btn-simple btn-success btn-icon detalle"><i class="icon-credit-card"></i></a>',
                 data:'action',
                 name:'action',
                 title:'Acciones',
@@ -283,13 +283,22 @@
 
         });
         table.on('click', '.edit', function (e) {
-            e.preventDefault();
-            $tr = $(this).closest('tr');
-            var dataTable = table.row($tr).data(),
-                route_edit = '{{ route('users.edit') }}'+ '/'+ dataTable.id;
+        e.preventDefault();
+        $tr = $(this).closest('tr');
+        var dataTable = table.row($tr).data(),
+          route_edit = '{{ route('users.edit') }}'+ '/'+ dataTable.id;
 
-            $(".content-ajax").load(route_edit);
-        });
+        $(".content-ajax").load(route_edit);
+      });
+
+      table.on('click', '.detalle', function (e) {
+        e.preventDefault();
+        $tr = $(this).closest('tr');
+        var dataTable = table.row($tr).data(),
+        route_detalle = '/detalle-usuario'+ '/'+ dataTable.id;
+
+        window.location.href = route_detalle;
+      });
 
         $( ".create" ).on('click', function (e) {
             e.preventDefault();

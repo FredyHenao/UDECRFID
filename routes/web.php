@@ -34,7 +34,18 @@ use App\Container\Users\Src\User;
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::post('/subir-imagen', 'ImagenController@subir');
+  Route::middleware('user.activo')->group(function() {
+
+    // Detalle usuario
+    Route::get('/detalle-usuario/{id}', 'UserController@detalle');
+    Route::get('/generar-carnet/{id}', 'UserController@generarCarnet')->name('GenerarCarnet');
+
+  });
+
+
+  Route::post('/guardar-y-generar-carnet', 'UserController@guardarGenerar');
+
+  Route::post('/subir-imagen', 'ImagenController@subir');
     Route::post('/recortar-imagen-perfil','ImagenController@cortar');
     Route::post('/guardar-carnet', 'CarnetController@guardar');
     Route::post('/lista-carnets', 'CarnetController@lista');

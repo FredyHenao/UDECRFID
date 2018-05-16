@@ -196,6 +196,7 @@ return [
         OwenIt\Auditing\AuditingServiceProvider::class,
         Tightenco\Ziggy\ZiggyServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Custom Service Providers...
@@ -281,7 +282,8 @@ return [
         'Permissions'  => App\Container\Permissions\Src\Facades\PermissionFacades::class,
         'Roles'        => App\Container\Permissions\Src\Facades\RoleFacades::class,
         'Modules'      => App\Container\Permissions\Src\Facades\ModuleFacades::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 
