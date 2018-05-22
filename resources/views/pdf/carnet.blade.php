@@ -51,8 +51,8 @@
       </span>
     </div>
     <div id="imagen">
-      @if(!empty($user->image->url))
-        <img src="./{{ $user->image->url }}" alt="" width="80px">
+      @if(!empty($user->getUrlImagen()))
+        <img src="./storage/developer/{{ $user->getUrlImagen() }}" alt="" width="80px">
       @else
         <img src="./images/default.gif" alt="" width="80px">
       @endif

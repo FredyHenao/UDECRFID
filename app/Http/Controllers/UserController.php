@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function detalle(Request $request)
     {
-      $usuario = User::find($request->id);
+      $usuario = \App\Container\Users\Src\User::find($request->id);
       $listens = Listen::activos()->orderByRaw('RAND()')->limit(5)->get();
 
       return view('access-control.detalle_usuario')->with([
@@ -47,7 +47,7 @@ class UserController extends Controller
 
     public function generarCarnet($id)
     {
-      $user = User::find($id);
+      $user = \App\Container\Users\Src\User::find($id);
       $pdf = PDF::loadView('pdf.carnet', compact('user'));
       return $pdf->download('carnet.pdf');
     }

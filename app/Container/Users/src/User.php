@@ -184,4 +184,40 @@ class User extends Authenticatable implements AuditableContract
         return $this->belongsToMany(Indicator::class);
     }
 
+    /* Traemos la ruta de la imagen */
+    public function getUrlImagen()
+    {
+      return $this->images[0]->url;
+    }
+
+    public function programa()
+    {
+      return $this->belongsTo('App\Programa', 'FK_ProgramaId', 'PK_IdProgramas')->withDefault(
+        ['PR_Nombre' => null]
+      );
+    }
+
+  public function getPrograma()
+  {
+    $programa = $this->programa->PR_Nombre;
+    $programa = explode(' ', $programa);
+    $aux = 0;
+    $first = '';
+    $last = '';
+    foreach ($programa as $prom){
+      if($aux == 0){
+        $first = $prom;
+      }else{
+        $last .= $prom . ' ';
+      }
+      $aux = 1;
+    }
+    return array(
+      'primero' => $first,
+      'ultimo' => $last
+    );
+  }
+
+
+
 }

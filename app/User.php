@@ -20,10 +20,6 @@ class User extends Model
     return $this->hasOne('App\Listen', 'FK_UsuarioId', 'id');
   }
 
-  public function image()
-  {
-    return $this->morphOne(Image::class, 'imageble');
-  }
 
   public function getPrograma()
   {

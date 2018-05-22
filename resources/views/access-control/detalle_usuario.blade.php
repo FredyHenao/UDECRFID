@@ -97,8 +97,8 @@
       <div class="portlet-body" style="margin-top: 2em;">
         <div class="row">
           <div class="col-12 text-center">
-            @if(!empty($usuario->image))
-             <img src="{{ $usuario->image->url }}" alt="" style="width: 350px; height: auto;">
+            @if(!empty($usuario->getUrlImagen()))
+             <img src="/storage/developer/{{ $usuario->getUrlImagen() }}" alt="" style="width: 350px; height: auto; border-radius: 5px;">
             @else
               <img src="{{ asset('images/default.gif') }}" alt="" style="width: 150px; height: auto;">
             @endif
