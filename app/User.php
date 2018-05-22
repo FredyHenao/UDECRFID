@@ -30,7 +30,6 @@ class User extends Model
     $programa = $this->programa->PR_Nombre;
     $programa = explode(' ', $programa);
     $aux = 0;
-    $datos = '';
     $first = '';
     $last = '';
     foreach ($programa as $prom){

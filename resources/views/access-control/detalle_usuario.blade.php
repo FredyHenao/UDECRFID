@@ -107,7 +107,7 @@
         <div class="row">
 
           <div class="col-12 col-md-6">
-            <div class="form-group"><label for="nombre"></label><input type="text" disabled value="{{ $usuario->name }}" class="form-control" id="nombre"></div>
+            <div class="form-group"><label for="nombre"></label><input type="text" disabled value="{{ $usuario->name . ' ' . $usuario->lastname }}" class="form-control" id="nombre"></div>
           </div>
           <div class="col-12 col-md-6">
             <div class="form-group"><label for="programa"></label><input type="text" disabled value="{{ $usuario->programa->PR_Nombre }}" class="form-control" id="programa"></div>
@@ -118,8 +118,8 @@
           <div class="col-12 col-md-6">
             <div class="form-group">
               <label for="codigo_tar"></label>
-              @if(!empty($usuario->listen))
-                <label for="codigo_estu"></label><input type="text" value="{{ $usuario->listen->LI_Codigo }}" class="form-control" id="codigo_estu" disabled >
+              @if(!empty($usuario->card_code))
+                <label for="codigo_estu"></label><input type="text" value="{{ $usuario->card_code }}" class="form-control" id="codigo_estu" disabled >
               @else
                 <select id="codigo_tar" class="form-control">
                   <option value="" selected></option>
@@ -132,7 +132,7 @@
           </div>
           <div class="col-12 col-md-6">
             <div class="form-group">
-              @if(!empty($usuario->listen))
+              @if(!empty($usuario->card_code))
                 <a href="{{ route('GenerarCarnet', [ 'id' => $usuario->id ]) }}">
                   <button class="btn btn-primary">Generar carnet</button>
                 </a>

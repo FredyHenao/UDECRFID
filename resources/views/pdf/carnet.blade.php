@@ -58,7 +58,7 @@
       @endif
     </div>
     <div id="codigo" style="color: green;">
-      # {{ $user->listen->LI_Codigo }}
+      # {{ $user->card_code }}
     </div>
   </div>
 

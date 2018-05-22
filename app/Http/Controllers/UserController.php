@@ -24,13 +24,21 @@ class UserController extends Controller
 
     public function guardarGenerar(CarnetFormRequest $request)
     {
-      $validar = Listen::where('FK_UsuarioId', $request->usuario_id)->count();
+      $usuario = User::find($request->usuario_id);
 
-      if($validar == 0)
+      // Verificamos que el usuario no tenga asignado un codigo
+      if(empty($usuario->card_code))
       {
-        $listen = Listen::where('PK_IdListen', $request->select)->update([
-          'FK_UsuarioId' => $request->usuario_id
-        ]);
+        // Consultamos el listen que contiene el codigo
+        $listen = Listen::where('PK_IdListen', $request->select)->first();
+
+        // Asignamos el codigo al usuario
+        $usuario->card_code = $listen->LI_Codigo;
+        $usuario->update();
+
+        // Eliminamos el codigo de listen
+        $listen->delete();
+
         return response()->json('Todo ok', 200);
       }else{
         return response()->json('Error', 400);
