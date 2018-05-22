@@ -187,7 +187,11 @@ class User extends Authenticatable implements AuditableContract
     /* Traemos la ruta de la imagen */
     public function getUrlImagen()
     {
-      return $this->images[0]->url;
+      if(!empty($this->images[0])){
+        return $this->images[0]->url;
+      }else{
+        return null;
+      }
     }
 
     public function programa()
